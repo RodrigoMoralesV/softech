@@ -14,18 +14,21 @@
  		<!-- Bootstrap -->
  		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
 
- 		<!-- Slick -->
- 		<link type="text/css" rel="stylesheet" href="css/slick.css"/>
- 		<link type="text/css" rel="stylesheet" href="css/slick-theme.css"/>
+		<!-- Bootstrap -->
+		<link type="text/css" rel="stylesheet" href="{{ url('css/bootstrap.min.css') }}"/>
 
- 		<!-- nouislider -->
- 		<link type="text/css" rel="stylesheet" href="css/nouislider.min.css"/>
+		<!-- Slick -->
+		<link type="text/css" rel="stylesheet" href="{{ url('css/slick.css') }}"/>
+		<link type="text/css" rel="stylesheet" href="{{ url('css/slick-theme.css') }}"/>
 
- 		<!-- Font Awesome Icon -->
- 		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<!-- nouislider -->
+		<link type="text/css" rel="stylesheet" href="{{ url('css/nouislider.min.css') }}"/>
 
- 		<!-- Custom stlylesheet -->
- 		<link type="text/css" rel="stylesheet" href="css/style.css"/>
+		<!-- Font Awesome Icon -->
+		<link rel="stylesheet" href="{{ url('css/font-awesome.min.css') }}">
+
+		<!-- Custom stlylesheet -->
+		<link type="text/css" rel="stylesheet" href="{{ url('css/style.css') }}"/>
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
