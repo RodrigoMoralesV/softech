@@ -584,11 +584,11 @@ textarea.input {
   color: #2B2D42;
 }
 
-.cart-dropdown .cart-btns {
+.cart-dropdown .cart-b {
   margin: 0px -17px -17px;
 }
 
-.cart-dropdown .cart-btns>a {
+.cart-dropdown .cart-bt>a {
   display: inline-block;
   width: calc(50% - 0px);
   padding: 12px;
@@ -603,6 +603,9 @@ textarea.input {
 .cart-dropdown .cart-btns>a:first-child {
   margin-right: -4px;
   background-color: #1e1f29;
+}
+.cart-btns {
+    text-align: center; 
 }
 
 .cart-dropdown .cart-btns>a:hover {
