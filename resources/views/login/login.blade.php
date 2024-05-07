@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="card shadow p-4">
-                        <form action="check" method ="post">
+                        <form action="index" method ="post">
 
                             @csrf
        
