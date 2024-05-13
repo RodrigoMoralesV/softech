@@ -2133,6 +2133,31 @@ textarea.input {
   position: static;
   margin: 15px 0px;
 }
+.cart-carrito{
+	   position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px; /* Ancho del panel lateral */
+    height: 100%; /* Altura de la pantalla */
+    background-color: #fff; /* Color de fondo */
+    border-left: 1px solid #ddd; /* Borde izquierdo */
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra */
+    z-index: 999; /* Z-index para asegurarse de que esté encima de otros elementos */
+    overflow-y: auto; /* Permitir desplazamiento vertical si el contenido es demasiado largo */
+    padding: 20px; /* Espacio interno */
+}
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  color: #000;
+}
+
 
 /*=========================================================
 	13 -> RESPONSIVE
