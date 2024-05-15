@@ -10,7 +10,9 @@ class Banco extends Model
 {
     use HasFactory;
 
+    protected $table = "banco";
+
     public function detalle_pago(){
-        return $this->hasMany(Detalle_pago::class);
+        return $this->hasMany(Detalle_pago::class, 'banco_id', 'id_banco');
     }
 }

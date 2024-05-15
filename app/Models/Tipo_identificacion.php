@@ -10,7 +10,9 @@ class Tipo_identificacion extends Model
 {
     use HasFactory;
 
+    protected $table = "tipo_identificacion";
+
     public function cliente(){
-        return $this->hasMany(Cliente::class);
+        return $this->hasMany(Cliente::class, 'tipo_identificacion_id', 'id_tipo_identificacion');
     }
 }

@@ -15,22 +15,22 @@ class Producto extends Model
     use HasFactory;
 
     public function categoria(){
-        return $this->belongsTo(Categoria::class);
+        return $this->belongsTo(Categoria::class, 'categoria_id', 'id_categoria');
     }
 
     public function unidad_medida(){
-        return $this->belongsTo(Unidad_medida::class);
+        return $this->belongsTo(Unidad_medida::class, '_id', 'id_');
     }
 
     public function embalaje(){
-        return $this->belongsTo(Embalaje::class);
+        return $this->belongsTo(Embalaje::class, '_id', 'id_');
     }
 
     public function marca(){
-        return $this->belongsTo(Marca::class);
+        return $this->belongsTo(Marca::class, '_id', 'id_');
     }
 
     public function detalle_producto(){
-        return $this->hasMany(Detalle_producto::class);
+        return $this->hasMany(Detalle_producto::class, '_id', 'id_');
     }
 }
