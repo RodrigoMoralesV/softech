@@ -1,9 +1,10 @@
 <?php
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Http\Request;
 use App\Models\User;
 use Hash;
+use Auth;
 class LoginController extends Controller
 {
     public function register(request $datos){
