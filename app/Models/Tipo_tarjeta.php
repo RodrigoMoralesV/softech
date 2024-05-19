@@ -10,7 +10,11 @@ class Tipo_tarjeta extends Model
 {
     use HasFactory;
 
+    protected $table = "tipo_tarjeta";
+
+    protected $primaryKey = "id_tipo_tarjeta";
+
     public function detalle_pago(){
-        return $this->hasMany(Detalle_pago::class);
+        return $this->hasMany(Detalle_pago::class, 'tipo_tarjeta_id', 'id_tipo_tarjeta');
     }
 }

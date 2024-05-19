@@ -12,6 +12,8 @@ class Banco extends Model
 
     protected $table = "banco";
 
+    protected $primaryKey = "id_banco";
+
     public function detalle_pago(){
         return $this->hasMany(Detalle_pago::class, 'banco_id', 'id_banco');
     }

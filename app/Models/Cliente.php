@@ -51,6 +51,8 @@ class Cliente extends Authenticatable
 
     protected $table = "cliente";
 
+    protected $primaryKey = "id_cliente";
+
     protected function ciudad(){
         return $this->belongsTo(Ciudad::class, 'ciudad_id', 'id_ciudad');
     }

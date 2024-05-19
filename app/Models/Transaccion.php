@@ -11,11 +11,15 @@ class Transaccion extends Model
 {
     use HasFactory;
 
+    protected $table = "transaccion";
+
+    protected $primaryKey = "codigo_transaccion";
+
     public function documento(){
-        return $this->hasMany(Documento::class);
+        return $this->hasMany(Documento::class, 'codigo_transaccion', 'codigo_transaccion');
     }
 
     public function detalle_pago(){
-        return $this->hasMany(Detalle_pago::class);
+        return $this->hasMany(Detalle_pago::class, 'codigo_transaccion', 'codigo_transaccion');
     }
 }

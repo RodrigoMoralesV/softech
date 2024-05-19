@@ -12,6 +12,8 @@ class Departamento extends Model
 
     protected $table = "departamento";
 
+    protected $primaryKey = "id_departamento";
+
     public function ciudad(){
         return $this->hasMany(Ciudad::class, 'departamento_id', 'id_departamento');
     }

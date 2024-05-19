@@ -10,7 +10,11 @@ class Metodo_pago extends Model
 {
     use HasFactory;
 
+    protected $table = "metodo_pago";
+
+    protected $primaryKey = "id_metodo_pago";
+
     public function detalle_pago(){
-        return $this->hasMany(Detalle_pago::class);
+        return $this->hasMany(Detalle_pago::class, 'metodo_pago_id', 'id_metodo_pago');
     }
 }

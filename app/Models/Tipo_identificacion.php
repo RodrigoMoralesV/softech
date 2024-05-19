@@ -12,6 +12,8 @@ class Tipo_identificacion extends Model
 
     protected $table = "tipo_identificacion";
 
+    protected $primaryKey = "id_tipo_identificacion";
+
     public function cliente(){
         return $this->hasMany(Cliente::class, 'tipo_identificacion_id', 'id_tipo_identificacion');
     }
