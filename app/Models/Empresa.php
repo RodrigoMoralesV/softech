@@ -10,7 +10,11 @@ class Empresa extends Model
 {
     use HasFactory;
 
+    protected $table = "empresa";
+
+    protected $primaryKey = "nit_empresa";
+
     public function documento(){
-        return $this->hasMany(Documento::class);
+        return $this->hasMany(Documento::class, 'nit_empresa', 'nit_empresa');
     }
 }

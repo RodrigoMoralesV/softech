@@ -10,7 +10,11 @@ class Embalaje extends Model
 {
     use HasFactory;
 
+    protected $table = "embalaje";
+
+    protected $primaryKey = "id_embalaje";
+
     public function producto(){
-        return $this->hasMany(Producto::class);
+        return $this->hasMany(Producto::class, 'embalaje_id', 'id_embalaje');
     }
 }

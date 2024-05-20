@@ -10,7 +10,11 @@ class Tipo_cuenta extends Model
 {
     use HasFactory;
 
+    protected $table = "tipo_cuenta";
+
+    protected $primaryKey = "id_tipo_cuenta";
+
     public function detalle_pago(){
-        return $this->hasMany(Detalle_pago::class);
+        return $this->hasMany(Detalle_pago::class, 'tipo_cuenta_id', 'id_tipo_cuenta');
     }
 }
