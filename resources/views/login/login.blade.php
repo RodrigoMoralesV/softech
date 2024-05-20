@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="card shadow p-4">
-                        <form action="index" method ="post">
+                        <form action={{url('check')}} method ="post">
 
                             @csrf
        
