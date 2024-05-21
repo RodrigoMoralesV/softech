@@ -10,7 +10,11 @@ class Marca extends Model
 {
     use HasFactory;
 
+    protected $table = "marca";
+
+    protected $primaryKey = "id_marca";
+
     public function producto(){
-        return $this->hasMany(Producto::class);
+        return $this->hasMany(Producto::class, 'marca_id', 'id_marca');
     }
 }

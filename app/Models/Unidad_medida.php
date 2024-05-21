@@ -10,7 +10,11 @@ class Unidad_medida extends Model
 {
     use HasFactory;
 
+    protected $table = "unidad_medida";
+
+    protected $primaryKey = "id_unidad_medida";
+
     public function producto(){
-        return $this->hasMany(Producto::class);
+        return $this->hasMany(Producto::class, 'unidad_medida_id', 'id_unidad_medida');
     }
 }

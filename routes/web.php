@@ -12,27 +12,39 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Auth;
 
+// Devuelve la vista de index por defecto
 Route::get('/', function () {
-    if (Auth::check())
-        return redirect('index');
-    return view('login');
+    return view('index');
 });
+
+// Se asegura que una persona logueada no pueda volver al login
 Route::get('/login', function () {
     if (Auth::check())
         return redirect('index');
     return view('login/login');
 })->name('login');
 
-Route::get('/logout', function () {
-    Auth::logout();
-    return redirect('login');
+// Recurso encargado de gestionar el login
+Route::resource('login',LoginController::class);
+
+// Recurso encargado de gestionar el registro
+Route::resource('registro',RegistroController::class);
+
+// Recurso encargado de gestionar el index
+Route::resource('index',IndexController::class);
+
+// Recurso encargado de gestionar las categorias de los productos
+Route::resource('categorias',CategoriaController::class);
+
+// Recurso encargado de gestionar los productos
+Route::resource('producto',ProductoController::class);
+
+// Rutas protegidas, las cuales solo se pueden acceder si el usuario esta logueado
+Route::middleware(['auth'])->group(function () {
+
+    Route::resource('carrito',CarritoController::class);
+
+    Route::resource('pago',PagoController::class);
+
+    Route::resource('usuario',UsuarioController::class);
 });
-
-Route::get('/register', function () {
-    return view('register');
-});
-
-
-
-
-
