@@ -2,9 +2,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-use Hash;
-use Auth;
 class LoginController extends Controller
 {
     public function register(request $datos){
@@ -12,7 +12,6 @@ class LoginController extends Controller
         $usuario['nombre'] = ucwords(strtolower( $datos-> get('nombre')));
         $usuario['email'] = strtolower( $datos-> get('email'));
         $usuario['password'] = Hash::make( $datos-> get('password'));
-
         User::create( $usuario);
         return redirect('/login');
     }

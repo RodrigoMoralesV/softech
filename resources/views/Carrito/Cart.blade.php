@@ -29,3 +29,13 @@
     </div>
 </div>
 
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const closeBtn = document.querySelector('.close-btn');
+        const cartCarrito = document.querySelector('.cart-carrito');
+        closeBtn.addEventListener('click', () => {
+            cartCarrito.style.display = 'none';
+        });
+    });
+</script>
+@endsection

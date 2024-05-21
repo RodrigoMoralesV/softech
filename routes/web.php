@@ -42,8 +42,11 @@ Route::resource('producto',ProductoController::class);
 // Rutas protegidas, las cuales solo se pueden acceder si el usuario esta logueado
 Route::middleware(['auth'])->group(function () {
 
-    Route::resource('carrito',CarritoController::class);
-
+    Route::post('/cart/add/{productId}', [CarritoController::class, 'addToCart'])->name('cart.add');
+    Route::get('/Carrito/cart', [CarritoController::class, 'viewCart'])->name('cart.view');
+    Route::delete('/cart/remove/{productId}', [CarritoController::class, 'removeFromCart'])->name('cart.remove');
+    Route::get('/cart/total', [CarritoController::class, 'calculateTotal'])->name('cart.total');
+    
     Route::resource('pago',PagoController::class);
 
     Route::resource('usuario',UsuarioController::class);

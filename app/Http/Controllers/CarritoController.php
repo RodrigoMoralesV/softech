@@ -7,36 +7,33 @@ use App\Models\Producto;
 
 class CarritoController extends Controller
 {
-
     public function viewCart(Request $request)
-{
-    // Get the cart from the session
-    $cart = $request->session()->get('cart', []);
-    
-    $total = 0;
-    $cartItems = [];
-    // Loop through each item in the cart
-    foreach ($cart as $productId => $item) {
-        // Get the product details from the item
-        $product = $item['product'];
-        // Create an array with the product details
-        $productDetails = [
-            'image' => $product->galeria_imagenes_productos,
-            'name' => $product->descripcion_producto,
-            'price'=> $product->valor_unitario,
-            'value' => $product->Descuento_producto,
-        ];
-        // Add the product details to the cart items array
-        $cartItems[] = $productDetails;
+    {
+        // Get the cart from the session
+        $cart = $request->session()->get('cart', []);
+        
+        $total = 0;
+        $cartItems = [];
+        foreach ($cart as $productId => $item) {
+            $product = Producto::find($productId);
+            if ($product) {
+                $productDetails = [
+                    'image' => $product->galeria_imagenes_productos,
+                    'name' => $product->descripcion_producto,
+                    'price'=> $product->valor_unitario,
+                    'value' => $product->Descuento_producto,
+                    'quantity' => $item['quantity'],
+                ];
+                $cartItems[] = $productDetails;
 
-        $subtotal = $product->price * $item['quantity'];
-        $total += $subtotal;
+                $subtotal = ($product->valor_unitario - $product->Descuento_producto) * $item['quantity'];
+                $total += $subtotal;
+            }
+        }
+        
+        // Pass $cartItems and $total to the view
+        return view('carrito/cart', compact('cartItems', 'total'));
     }
-    
-    // Pass both $cart and $cartItems to the view
-    return view('carrito/cart', compact('cart', 'cartItems','total'));
-    return response()->json($cartItems, 200);
-}
 
     public function addToCart(Request $request, $productId)
     {
@@ -58,7 +55,6 @@ class CarritoController extends Controller
         } else {
             // Add the product to the cart with a quantity of 1
             $cart[$productId] = [
-                'product' => $product,
                 'quantity' => 1
             ];
         }
@@ -87,5 +83,4 @@ class CarritoController extends Controller
             return response()->json(['message' => 'Product not found in cart'], 404);
         }
     }
-    
 }
