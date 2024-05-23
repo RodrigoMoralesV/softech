@@ -33,8 +33,14 @@
 		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
-
+		<style>
+			.header-logo img {
+				width: 150px; /* Adjust the width as needed */
+				height: auto; /* Maintain the aspect ratio */
+			}
+		</style>
     </head>
+
 	<body>
 		<!-- HEADER -->
 		<header>
