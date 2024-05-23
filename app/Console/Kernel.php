@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        \App\Console\Commands\MigratePasswords::class,
+        \App\Console\Commands\MyCustomCommand::class,
     ];
 
     /**
@@ -24,7 +24,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        // Aquí puedes programar tareas periódicas usando el objeto $schedule.
+        // Por ejemplo:
+        // $schedule->command('my:custom:command')->daily();
     }
 
     /**

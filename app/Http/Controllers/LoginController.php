@@ -18,7 +18,7 @@ class LoginController extends Controller
 
         if (Auth::guard('web')->attempt(['correo_cliente' => $credentials['correo_cliente'], 'password' => $credentials['password']])) {
             $request->session()->regenerate();
-            return redirect()->intended('/');
+            return redirect()->intended('index');
         }
 
         return back()->withErrors([
