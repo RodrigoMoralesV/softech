@@ -7,5 +7,5 @@ use Illuminate\Http\Request;
 
 class RegistroController extends Controller
 {
-    //
+    //prueba cambio
 }
