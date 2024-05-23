@@ -12,6 +12,10 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Auth;
 
+Route::get('/registro',function (){
+    return view('registro/registro');
+});
+
 // Devuelve la vista de index por defecto
 Route::get('/', function () {
     return view('index');
@@ -28,7 +32,7 @@ Route::get('/login', function () {
 Route::resource('login',LoginController::class);
 
 // Recurso encargado de gestionar el registro
-Route::resource('registro',RegistroController::class);
+// Route::resource('registro',RegistroController::class);
 
 // Recurso encargado de gestionar el index
 Route::resource('index',IndexController::class);
