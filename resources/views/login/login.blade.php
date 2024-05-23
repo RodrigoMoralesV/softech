@@ -24,7 +24,6 @@
             padding: 20px 0;
             text-align: center;
         }
-        /* Animación de sombreado al pasar el mouse sobre la imagen */
         img:hover {
             transition: box-shadow 0.3s ease-in-out;
             box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.5);
@@ -36,44 +35,38 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <img src="{{('img/logo.png') }}" class="img-fluid" alt="Logo" style="max-width: 500px;">
+                    <img src="{{ asset('img/logo.png') }}" class="img-fluid" alt="Logo" style="max-width: 500px;">
                 </div>
                 <div class="col-md-6">
                     <div class="card shadow p-4">
-                        <form action={{url('check')}} method ="post">
-
+                        <form action="{{ url('check') }}" method="POST">
                             @csrf
-       
-                            @error ('email')
-                            <div class="error">
-                               {{$message }}
-                            </div>
+
+                            @error('email')
+                            <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
-       
-                               <div class="form-group">
-                                   <label>Email </label>
-                                   <input type="email" name="email" class="form-control" placeholder="Email" required autofocus value="{{old('email')}}">
-                               </div>
-                               <div class="form-group">
-                                   <label>Contraseña</label>
-                                   <input type="password" name="password" class="form-control" placeholder="Contraseña" required autofocus>
-                               </div>
-                               <div class="checkbox">
-                                   <label>
-                                       <input type="checkbox"> Remember Me
-                                   </label>
-                                   <label class="pull-right">
-                                       <a href="#">¿Olvidaste tu contraseña?</a>
-                                   </label>
-       
-                               </div>
-                               <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30"color:blue
-                               >Ingresar</button>
-                               
-                               <div class="register-link m-t-15 text-center">
-                                   <p>¿No tienes cuenta? <a href="{{url ('register')}}"> Registrate aquí</a></p>
-                               </div>
-                           </form>
+
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" name="correo_cliente" class="form-control" placeholder="Email" required autofocus value="{{ old('correo_cliente') }}">
+                            </div>
+                            <div class="form-group">
+                                <label>Contraseña</label>
+                                <input type="password" name="password" class="form-control" placeholder="Contraseña" required>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="remember"> Remember Me
+                                </label>
+                                <label class="pull-right">
+                                    <a href="#">¿Olvidaste tu contraseña?</a>
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Ingresar</button>
+                            <div class="register-link m-t-15 text-center">
+                                <p>¿No tienes cuenta? <a href="{{ url('register') }}">Regístrate aquí</a></p>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -93,4 +86,3 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-

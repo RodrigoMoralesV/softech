@@ -1,32 +1,29 @@
-<?php
+<?php 
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
+
 class LoginController extends Controller
 {
-    public function register(request $datos){
-
-        $usuario['nombre'] = ucwords(strtolower( $datos-> get('nombre')));
-        $usuario['email'] = strtolower( $datos-> get('email'));
-        $usuario['password'] = Hash::make( $datos-> get('password'));
-        User::create( $usuario);
-        return redirect('/login');
+    public function showLoginForm()
+    {
+        return view('login.login');
     }
 
-    public function check (Request $datos){
-        
-        if (Auth::attempt($datos->except('_token'))){
-            $datos->session()->regenerate();
+    public function check(Request $request)
+    {
+        $credentials = $request->only('correo_cliente', 'password');
 
-            return redirect()->intended('home');
+        if (Auth::guard('web')->attempt(['correo_cliente' => $credentials['correo_cliente'], 'password' => $credentials['password']])) {
+            $request->session()->regenerate();
+            return redirect()->intended('/');
         }
 
-        return back ()->withErrors([
-            'email' => 'Los datos son incorrectos, porfavor vuelva a intentarlo.',
-        ])->onlyInput('email');
+        return back()->withErrors([
+            'correo_cliente' => 'Los datos son incorrectos, por favor vuelva a intentarlo.',
+        ])->onlyInput('correo_cliente');
     }
-
 }
+
