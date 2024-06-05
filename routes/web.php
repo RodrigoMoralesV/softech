@@ -31,3 +31,9 @@ Route::middleware(['auth'])->group(function () {
 Route::resource('categorias', CategoriaController::class);
 Route::resource('producto', ProductoController::class);
 Route::resource('registro', RegistroController::class);
+
+// Rutas de Pago (PayPal)
+Route::get('payment', 'PagoController@index');
+Route::get('charge', 'PagoController@charge');
+Route::get('success', 'PagoController@success');
+Route::get('error', 'PagoController@error');
